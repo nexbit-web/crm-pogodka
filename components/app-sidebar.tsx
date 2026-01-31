@@ -28,6 +28,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import Link from "next/link";
+import Image from "next/image";
 
 const navItems = [
   {
@@ -92,7 +93,6 @@ const navItems = [
   },
 ];
 
-
 const user = {
   name: "Микита",
   email: "m@example.com",
@@ -121,7 +121,13 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarMenuButton size="lg" asChild>
               <Link href="/">
                 <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-                  <Command className="size-4" />
+                  {/* <Command className="size-4" /> */}
+                  <Image
+                    src="/CRM-logo.png"
+                    alt="Описание картинки"
+                    width={25}
+                    height={25}
+                  />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-medium">CRM Pogodka</span>

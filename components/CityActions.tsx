@@ -20,7 +20,6 @@ import {
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import { Trash2Icon } from "lucide-react";
-import { Spinner } from "./ui/spinner";
 
 type CityActionsProps = {
   cityId: number;

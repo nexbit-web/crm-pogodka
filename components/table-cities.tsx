@@ -13,6 +13,7 @@ import { Spinner } from "./ui/spinner";
 import { Input } from "@/components/ui/input";
 import AddCityDialog from "./AddCityDialog";
 import CityActions from "./CityActions";
+import { toast } from "react-hot-toast";
 
 type City = {
   id: number;
@@ -71,12 +72,12 @@ export default function TableCities() {
     <div className="p-4">
       <h1 className="text-xl font-bold mb-4">Міста {cities.length}</h1>
 
-      <div className="flex justify-between items-center mb-2">
+      <div className="flex justify-between   mb-2 gap-2.5">
         <Input
           placeholder="Пошук..."
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="mb-4 max-w-sm"
+          className="mb-4 max-w-sm "
         />
         <AddCityDialog onCityAdded={(city) => setCities([...cities, city])} />
       </div>
@@ -106,7 +107,7 @@ export default function TableCities() {
                 <CityActions
                   cityId={city.id}
                   onDelete={handleDelete}
-                  onEdit={(id) => alert(`Редагувати місто ${id}`)}
+                  onEdit={(id) => toast.success(`Редагувати місто ${id}`)}
                 />
               </TableCell>
             </TableRow>
