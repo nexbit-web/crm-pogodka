@@ -11,7 +11,6 @@ export default function CitiesPage() {
   return (
     <ProtectedPage allowedRoles={["admin", "editor"]}>
       <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-        
         <TableCities />
       </div>
     </ProtectedPage>

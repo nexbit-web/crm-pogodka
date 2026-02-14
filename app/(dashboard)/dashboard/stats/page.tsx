@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { ProtectedPage } from "@/components/ProtectedPage";
 import { Bot, CalendarClock, User } from "lucide-react";
+import { Spinner } from "@/components/ui/spinner";
 
 export default function StatsPage() {
   const [stats, setStats] = useState<any>(null);
@@ -39,14 +40,19 @@ export default function StatsPage() {
     };
   }, []);
 
+  if (!stats)
+    return (
+      <div className="flex min-h-[80vh] items-center justify-center">
+        <Spinner className="h-6 w-6" />
+      </div>
+    );
+
   return (
     <ProtectedPage allowedRoles={["admin", "editor", "viewer"]}>
       <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
         {/* Заголовок + индикатор */}
 
         <h1 className="text-2xl font-semibold">Статистика</h1>
-
-        {!stats && <p>Loading...</p>}
 
         <div className="flex items-center gap-3">
           <h2 className="text-2xl font-bold">Сьгодні</h2>
@@ -57,7 +63,7 @@ export default function StatsPage() {
 
             <span className="absolute inset-0 rounded-full bg-red-600" />
           </div>
-           <p className="text-sm opacity-70">{seconds} сек</p>
+          <p className="text-sm opacity-70">{seconds} сек</p>
         </div>
         {stats && (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
