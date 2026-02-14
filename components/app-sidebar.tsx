@@ -32,6 +32,12 @@ import Image from "next/image";
 
 const navItems = [
   {
+    title: "Статистика",
+    url: "/dashboard/stats",
+    icon: ChartNoAxesCombined,
+    roles: ["admin", "editor", "viewer"],
+  },
+  {
     title: "Міста",
     url: "/dashboard/cities",
     icon: House,
@@ -54,12 +60,6 @@ const navItems = [
     url: "/dashboard/request-logs",
     icon: File,
     roles: ["admin", "editor"],
-  },
-  {
-    title: "Статистика",
-    url: "/dashboard/stats",
-    icon: ChartNoAxesCombined,
-    roles: ["admin", "editor", "viewer"],
   },
   {
     title: "Реклама",
