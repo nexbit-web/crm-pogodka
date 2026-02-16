@@ -26,8 +26,19 @@ export async function POST(req: Request) {
     const isBot = /bot|crawl|spider|google|bing/i.test(ua);
 
     // Сегодняшняя дата (для подсчёта статистики)
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
+    const now = new Date();
+
+    const today = new Date(
+      Date.UTC(
+        now.getUTCFullYear(),
+        now.getUTCMonth(),
+        now.getUTCDate(),
+        0,
+        0,
+        0,
+        0,
+      ),
+    );
 
     // Фоновая обработка, чтобы не задерживать ответ клиенту
     queueMicrotask(async () => {
